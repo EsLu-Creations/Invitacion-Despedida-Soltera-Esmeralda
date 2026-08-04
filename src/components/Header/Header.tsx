@@ -20,32 +20,47 @@ const Header = () => {
         <img
           src={imgHeader}
           alt="Header"
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center md:hidden"
+        />
+        <img
+          src={imgHeader}
+          alt="Header"
+          className="hidden h-full w-full object-cover object-center md:block"
         />
 
         <div className="absolute inset-0 bg-linear-to-b from-marfil/15 via-marfil/5 to-marfil/20" />
       </div>
 
-      <div className="relative z-10 flex max-w-5xl flex-col items-center px-6 text-center">
-        <p
+      <div className="relative z-10 flex max-w-5xl flex-col items-center px-6 text-center mt-8">
+        <div
           className="
-            mb-5
+            mb-6
+            flex
+            flex-col
+            items-center
+            gap-1.5
             uppercase
-            tracking-[0.45em]
-            text-gris-calido/70
+            tracking-[0.3em]
+            md:tracking-[0.45em]
+            text-gris-calido/150
             text-xs
             md:text-sm
             font-light
             font-montserrat
           "
         >
-          ✦ Te invitamos a celebrar ✦
-        </p>
+          <span>Te invitamos a</span>
+          <span className="flex items-center gap-2">
+            <span className="text-dorado text-[10px]">✦</span>
+            Celebrar
+            <span className="text-dorado text-[10px]">✦</span>
+          </span>
+        </div>
 
         <h1
           className="
             font-cormorant
-            leading-[0.88]
+            leading-[0.95]
             font-semibold
             tracking-wide
             text-transparent
@@ -70,44 +85,60 @@ const Header = () => {
         <div
           className="
             mt-8
-            mb-5
+            mb-6
             flex
             items-center
             w-full
-            max-w-md
+            max-w-56
+            md:max-w-xs
             gap-4
           "
         >
-          <div className="h-px flex-1 bg-linear-to-r from-transparent via-dorado/40 to-dorado/70" />
-
+          <div className="h-px flex-1 bg-linear-to-r from-transparent via-dorado/60 to-dorado/90" />
           <Sparkles
-            size={22}
-            className="
-              text-dorado
-              animate-pulse
-            "
+            size={18}
+            className="text-dorado animate-pulse"
+            fill="currentColor"
           />
-
-          <div className="h-px flex-1 bg-linear-to-l from-transparent via-dorado/40 to-dorado/70" />
+          <div className="h-px flex-1 bg-linear-to-l from-transparent via-dorado/60 to-dorado/90" />
         </div>
+
+        <h2
+          className="
+            mb-6
+            uppercase
+            tracking-[0.25em]
+            md:tracking-[0.3em]
+            text-[#7a505e]
+            text-xs
+            md:text-sm
+            font-medium
+            font-montserrat
+          "
+        >
+          Despedida de Soltera
+        </h2>
 
         <p
           className="
-            mt-8
-            max-w-xl
+            mt-2
+            max-w-sm
+            md:max-w-md
             font-poppins
             text-gris-calido/80
             text-base
-            md:text-lg
+            md:text-[1.1rem]
             italic
             leading-relaxed
           "
         >
-          Una tarde para celebrar, brindar y crear recuerdos inolvidables antes
-          del gran día.
+          Una tarde para celebrar, brindar y<br />
+          crear recuerdos inolvidables
+          <br />
+          antes del gran día.
         </p>
 
-        <div className="mt-16 animate-float">
+        <div className="mt-12 md:mt-16 animate-float">
           <div
             className="
               flex
@@ -118,7 +149,8 @@ const Header = () => {
               rounded-full
               border
               border-dorado/30
-              bg-white/50
+              bg-[#FFFDF9]/90
+              shadow-[0_0_15px_rgba(214,175,58,0.1)]
               backdrop-blur-sm
             "
           >
