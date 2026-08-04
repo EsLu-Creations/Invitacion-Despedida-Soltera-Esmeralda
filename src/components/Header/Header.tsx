@@ -59,6 +59,10 @@ const Header = () => {
 
         <h1
           className="
+            pl-4
+            md:pl-5
+            pr-2
+            py-4 
             font-cormorant
             leading-[0.95]
             font-semibold
