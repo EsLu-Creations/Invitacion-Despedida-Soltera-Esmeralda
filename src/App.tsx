@@ -1,3 +1,4 @@
+import AudioPlayer from "./components/AudioPlayer/AudioPlayer";
 import Countdown from "./components/Countdown/Countdown";
 import DressCode from "./components/DressCode/DressCode";
 import Footer from "./components/Footer/Footer";
@@ -16,6 +17,7 @@ const App = () => {
       <Gifts />
       <RSVP />
       <Footer />
+      <AudioPlayer />
     </div>
   );
 };
