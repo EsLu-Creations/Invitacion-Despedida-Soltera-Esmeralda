@@ -63,7 +63,7 @@ const Header = () => {
             md:pl-5
             pr-2
             py-4 
-            font-cormorant
+            font-script
             leading-[0.95]
             font-semibold
             tracking-wide
