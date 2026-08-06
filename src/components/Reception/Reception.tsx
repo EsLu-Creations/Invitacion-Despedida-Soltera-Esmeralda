@@ -3,8 +3,26 @@ import imgRecepcion from "../../assets/img/recepcion.png";
 import imgEvento from "../../assets/img/foto del evento.png";
 
 const Reception = () => {
+  const infoCards = [
+    {
+      icon: <CalendarDays size={28} className="text-dorado" />,
+      title: "Fecha",
+      value: "Domingo",
+      subtitle: "27 de Septiembre de 2026",
+    },
+    {
+      icon: <Clock3 size={28} className="text-dorado" />,
+      title: "Hora",
+      value: "3:00 PM",
+      subtitle: "Show especial • 4:00 PM",
+      italic: true,
+    },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-marfil py-28">
+    <section className="relative overflow-hidden bg-marfil py-16 sm:py-20 lg:py-28">
+      {/* Fondo */}
+
       <img
         src={imgRecepcion}
         alt=""
@@ -14,20 +32,23 @@ const Reception = () => {
           inset-0
           h-full
           w-full
-          object-cover
-          opacity-55
           select-none
+          object-cover
+          opacity-50
         "
       />
 
-      <div className="relative z-10 mx-auto flex max-w-xl flex-col items-center px-6 text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 text-center sm:px-8">
+        {/* Encabezado */}
+
         <p
           className="
             font-montserrat
+            text-xs
             uppercase
-            tracking-[0.45em]
-            text-sm
+            tracking-[0.35em]
             text-gris-calido/70
+            sm:text-sm
           "
         >
           Lugar del evento
@@ -37,141 +58,137 @@ const Reception = () => {
           className="
             mt-5
             font-cormorant
-            text-5xl
-            md:text-6xl
+            text-[clamp(2.5rem,6vw,4.8rem)]
+            leading-tight
             text-gris-calido
           "
         >
           Salón Alanna Eventos
         </h2>
 
-        <div className="my-10 flex items-center gap-4">
-          <div className="h-px w-24 bg-linear-to-r from-transparent to-dorado" />
+        {/* Separador */}
 
-          <Flower2 size={22} className="text-dorado" strokeWidth={1.5} />
+        <div className="my-8 flex items-center gap-4 sm:my-10">
+          <div className="h-px w-16 bg-linear-to-r from-transparent to-dorado sm:w-24" />
 
-          <div className="h-px w-24 bg-linear-to-l from-transparent to-dorado" />
+          <Flower2 size={22} strokeWidth={1.5} className="text-dorado" />
+
+          <div className="h-px w-16 bg-linear-to-l from-transparent to-dorado sm:w-24" />
         </div>
+
+        {/* Imagen */}
 
         <div
           className="
+            w-full
+            max-w-3xl
             overflow-hidden
             rounded-[28px]
-            border-8
+            border-[6px]
             border-white
-            shadow-xl
+            shadow-2xl
           "
         >
           <img
             src={imgEvento}
             alt="Salón Alanna"
             className="
-              h-72
+              aspect-[4/3]
               w-full
               object-cover
+              transition-transform
+              duration-500
+              hover:scale-105
             "
           />
         </div>
 
-        <div className="mt-14 flex flex-col items-center">
-          <CalendarDays size={28} className="text-dorado" />
+        {/* Información */}
 
-          <p
-            className="
-              mt-5
-              font-montserrat
-              uppercase
-              tracking-[0.35em]
-              text-xs
-              text-gris-calido/60
-            "
-          >
-            Fecha
-          </p>
+        <div className="mt-12 grid w-full max-w-3xl gap-6 md:grid-cols-2">
+          {infoCards.map((card) => (
+            <div
+              key={card.title}
+              className="
+                rounded-3xl
+                border
+                border-dorado/20
+                bg-white/50
+                px-6
+                py-8
+                shadow-lg
+                backdrop-blur-sm
+              "
+            >
+              <div className="flex justify-center">{card.icon}</div>
 
-          <h3
-            className="
-              mt-2
-              font-cormorant
-              text-4xl
-              text-gris-calido
-            "
-          >
-            Domingo
-          </h3>
+              <p
+                className="
+                  mt-5
+                  font-montserrat
+                  text-xs
+                  uppercase
+                  tracking-[0.35em]
+                  text-gris-calido/60
+                "
+              >
+                {card.title}
+              </p>
 
-          <p
-            className="
-              mt-1
-              font-poppins
-              text-lg
-              text-gris-calido/80
-            "
-          >
-            27 de Septiembre de 2026
-          </p>
+              <h3
+                className="
+                  mt-3
+                  font-cormorant
+                  text-[clamp(2rem,5vw,3rem)]
+                  text-gris-calido
+                "
+              >
+                {card.value}
+              </h3>
+
+              <p
+                className={`
+                  mt-3
+                  font-poppins
+                  text-base
+                  text-gris-calido/75
+                  sm:text-lg
+                  ${card.italic ? "italic" : ""}
+                `}
+              >
+                {card.subtitle}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-14 flex flex-col items-center">
-          <Clock3 size={28} className="text-dorado" />
+        {/* Botón */}
 
-          <p
-            className="
-              mt-5
-              font-montserrat
-              uppercase
-              tracking-[0.35em]
-              text-xs
-              text-gris-calido/60
-            "
-          >
-            Hora
-          </p>
-
-          <h3
-            className="
-              mt-2
-              font-cormorant
-              text-5xl
-              text-gris-calido
-            "
-          >
-            3:00 PM
-          </h3>
-
-          <p
-            className="
-              mt-4
-              font-poppins
-              italic
-              text-gris-calido/70
-            "
-          >
-            Show especial • 4:00 PM
-          </p>
-        </div>
         <a
           href="https://maps.app.goo.gl/yL9H1xqJQnsvPzuv6?g_st=ac"
           target="_blank"
           rel="noopener noreferrer"
           className="
-            mt-16
+            mt-12
             inline-flex
             items-center
             gap-3
             rounded-full
             bg-dorado
-            px-10
+            px-7
             py-4
             font-montserrat
-            text-sm
+            text-xs
             uppercase
             tracking-[0.25em]
             text-white
+            shadow-lg
             transition-all
             duration-300
             hover:-translate-y-1
-            hover:shadow-xl
+            hover:shadow-2xl
+            sm:px-10
+            sm:text-sm
           "
         >
           <MapPin size={18} />
