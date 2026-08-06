@@ -21,8 +21,6 @@ const Reception = () => {
 
   return (
     <section className="relative overflow-hidden bg-marfil py-16 sm:py-20 lg:py-28">
-      {/* Fondo */}
-
       <img
         src={imgRecepcion}
         alt=""
@@ -39,8 +37,6 @@ const Reception = () => {
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 text-center sm:px-8">
-        {/* Encabezado */}
-
         <p
           className="
             font-montserrat
@@ -66,8 +62,6 @@ const Reception = () => {
           Salón Alanna Eventos
         </h2>
 
-        {/* Separador */}
-
         <div className="my-8 flex items-center gap-4 sm:my-10">
           <div className="h-px w-16 bg-linear-to-r from-transparent to-dorado sm:w-24" />
 
@@ -75,8 +69,6 @@ const Reception = () => {
 
           <div className="h-px w-16 bg-linear-to-l from-transparent to-dorado sm:w-24" />
         </div>
-
-        {/* Imagen */}
 
         <div
           className="
