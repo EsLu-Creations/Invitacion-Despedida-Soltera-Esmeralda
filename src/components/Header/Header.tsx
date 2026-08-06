@@ -87,7 +87,7 @@ const Header = () => {
             py-3
             font-script
             text-[3.2rem]
-            leading-[0.95]
+            leading-[1.05]
             font-semibold
             tracking-wide
             text-transparent
