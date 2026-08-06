@@ -1,15 +1,20 @@
-import imgDressCode from "../../assets/img/dress code.png";
+import imgDesktop from "../../assets/img/dress code-desktop.png";
+import imgMobile from "../../assets/img/dress code-mobile.png";
 
 const DressCode = () => {
   return (
-    <section className="relative w-full bg-marfil flex items-center justify-center overflow-hidden">
-      <div className="relative z-10 w-full animate-fade-in">
-        <img
-          src={imgDressCode}
-          alt="Código de vestimenta: Formal / Casual"
-          className="w-full h-auto mix-blend-multiply drop-shadow-sm"
-        />
-      </div>
+    <section className="bg-marfil">
+      <img
+        src={imgMobile}
+        alt="Dress Code"
+        className="block w-full md:hidden"
+      />
+
+      <img
+        src={imgDesktop}
+        alt="Dress Code"
+        className="hidden w-full md:block"
+      />
     </section>
   );
 };
