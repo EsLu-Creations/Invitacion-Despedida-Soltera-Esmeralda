@@ -7,12 +7,15 @@ const Header = () => {
       className="
         relative
         flex
-        h-[85svh]
-        min-h-162.5
+        min-h-screen
         items-center
         justify-center
         overflow-hidden
         bg-marfil
+        py-10
+        sm:py-12
+        md:py-16
+        lg:py-20
         animate-fade-in
       "
     >
@@ -20,65 +23,80 @@ const Header = () => {
         <img
           src={imgHeader}
           alt="Header"
-          className="h-full w-full object-cover object-center md:hidden"
-        />
-        <img
-          src={imgHeader}
-          alt="Header"
-          className="hidden h-full w-full object-cover object-center md:block"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
         <div className="absolute inset-0 bg-linear-to-b from-marfil/15 via-marfil/5 to-marfil/20" />
       </div>
 
-      <div className="relative z-10 flex max-w-5xl flex-col items-center px-6 text-center mt-8">
+      <div
+        className="
+          relative
+          z-10
+          flex
+          w-full
+          max-w-6xl
+          flex-col
+          items-center
+          gap-5
+          px-5
+          pt-8
+          text-center
+          sm:gap-6
+          sm:px-8
+          md:gap-8
+          lg:px-12
+        "
+      >
         <div
           className="
-            mb-6
             flex
             flex-col
             items-center
-            gap-1.5
-            uppercase
-            tracking-[0.3em]
-            md:tracking-[0.45em]
-            text-gris-calido/150
-            text-xs
-            md:text-sm
-            font-light
+            gap-2
             font-montserrat
+            text-[11px]
+            font-light
+            uppercase
+            tracking-[0.18em]
+            text-gris-calido
+            sm:text-xs
+            sm:tracking-[0.28em]
+            md:text-sm
+            md:tracking-[0.4em]
           "
         >
           <span>Te invitamos a</span>
+
           <span className="flex items-center gap-2">
-            <span className="text-dorado text-[10px]">✦</span>
+            <span className="text-[10px] text-dorado">✦</span>
             Celebrar
-            <span className="text-dorado text-[10px]">✦</span>
+            <span className="text-[10px] text-dorado">✦</span>
           </span>
         </div>
 
         <h1
           className="
-            pl-4
-            md:pl-5
-            pr-2
-            py-4 
-            font-script
-            leading-[0.95]
-            font-semibold
-            tracking-wide
-            text-transparent
+            animate-scale-in
             bg-linear-to-b
             from-[#F1D98B]
             via-[#D6AF3A]
             to-[#B8871A]
             bg-clip-text
+            px-2
+            py-3
+            font-script
+            text-[3.2rem]
+            leading-[0.95]
+            font-semibold
+            tracking-wide
+            text-transparent
             drop-shadow-[0_2px_5px_rgba(0,0,0,.15)]
-            text-[4rem]
-            sm:text-[5rem]
-            md:text-[6.5rem]
-            lg:text-[7.5rem]
-            animate-scale-in
+            sm:px-4
+            sm:text-[4.8rem]
+            md:text-[6rem]
+            lg:text-[7rem]
+            xl:text-[8rem]
           "
         >
           Esmeralda
@@ -88,36 +106,38 @@ const Header = () => {
 
         <div
           className="
-            mt-8
-            mb-6
             flex
-            items-center
             w-full
-            max-w-56
-            md:max-w-xs
+            max-w-48
+            items-center
             gap-4
+            sm:max-w-56
+            md:max-w-72
           "
         >
           <div className="h-px flex-1 bg-linear-to-r from-transparent via-dorado/60 to-dorado/90" />
+
           <Sparkles
             size={18}
-            className="text-dorado animate-pulse"
             fill="currentColor"
+            className="animate-pulse text-dorado"
           />
+
           <div className="h-px flex-1 bg-linear-to-l from-transparent via-dorado/60 to-dorado/90" />
         </div>
 
         <h2
           className="
-            mb-6
-            uppercase
-            tracking-[0.25em]
-            md:tracking-[0.3em]
-            text-[#7a505e]
-            text-xs
-            md:text-sm
-            font-medium
             font-montserrat
+            text-[11px]
+            font-medium
+            uppercase
+            tracking-[0.2em]
+            text-[#7a505e]
+            sm:text-xs
+            sm:tracking-[0.25em]
+            md:text-sm
+            md:tracking-[0.35em]
           "
         >
           Despedida de Soltera
@@ -125,29 +145,29 @@ const Header = () => {
 
         <p
           className="
-            mt-2
-            max-w-sm
-            md:max-w-md
+            max-w-xs
+            text-balance
             font-poppins
-            text-gris-calido/80
-            text-base
-            md:text-[1.1rem]
+            text-sm
+            leading-7
             italic
-            leading-relaxed
+            text-gris-calido/80
+            sm:max-w-sm
+            sm:text-base
+            md:max-w-lg
+            md:text-lg
           "
         >
-          Una tarde para celebrar, brindar y<br />
-          crear recuerdos inolvidables
-          <br />
-          antes del gran día.
+          Una tarde para celebrar, brindar y crear recuerdos inolvidables antes
+          del gran día.
         </p>
 
-        <div className="mt-12 md:mt-16 animate-float">
+        <div className="mt-10 animate-float md:mt-16 lg:mt-20">
           <div
             className="
               flex
-              h-12
-              w-12
+              h-10
+              w-10
               items-center
               justify-center
               rounded-full
@@ -156,6 +176,10 @@ const Header = () => {
               bg-[#FFFDF9]/90
               shadow-[0_0_15px_rgba(214,175,58,0.1)]
               backdrop-blur-sm
+              sm:h-12
+              sm:w-12
+              lg:h-14
+              lg:w-14
             "
           >
             <svg
@@ -163,7 +187,7 @@ const Header = () => {
               fill="none"
               stroke="currentColor"
               strokeWidth="1.8"
-              className="w-5 h-5 text-dorado"
+              className="h-5 w-5 text-dorado lg:h-6 lg:w-6"
             >
               <path
                 strokeLinecap="round"

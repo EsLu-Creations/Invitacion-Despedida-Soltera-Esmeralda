@@ -37,49 +37,46 @@ const Countdown = () => {
 
   const format = (value: number) => value.toString().padStart(2, "0");
 
+  const timeUnits = [
+    { value: format(timeLeft.hours), label: "Horas" },
+    { value: format(timeLeft.minutes), label: "Minutos" },
+    { value: format(timeLeft.seconds), label: "Segundos" },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-marfil py-28">
-      {/* Fondo */}
+    <section className="relative overflow-hidden bg-marfil py-16 sm:py-20 lg:py-28">
       <img
         src={imgFlores}
         alt=""
         className="
+          pointer-events-none
           absolute
           inset-0
           h-full
           w-full
-          object-cover
-          opacity-55
-          pointer-events-none
           select-none
+          object-cover
+          opacity-50
         "
       />
 
-      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 text-center">
-        {/* Mes */}
-
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-5 text-center sm:px-8">
         <p
           className="
-            font-montserrat
-            uppercase
-            tracking-[0.6em]
-            text-gris-calido/80
-            text-lg
             animate-slide-up
+            font-montserrat
+            text-base
+            uppercase
+            tracking-[0.45em]
+            text-gris-calido/80
+            sm:text-lg
           "
         >
           Septiembre
         </p>
 
-        {/* Calendario */}
-
-        <div
-          className="
-            mt-10
-            animate-slide-up
-          "
-        >
-          <div className="grid grid-cols-5 gap-8">
+        <div className="mt-8 animate-slide-up sm:mt-10">
+          <div className="grid grid-cols-5 gap-3 sm:gap-5 md:gap-8">
             {[
               ["J", "24"],
               ["V", "25"],
@@ -88,61 +85,39 @@ const Countdown = () => {
               ["L", "28"],
             ].map(([day, number]) => (
               <div key={number} className="flex flex-col items-center">
-                <span className="font-montserrat text-sm font-medium text-gris-calido">
+                <span className="font-montserrat text-xs font-medium text-gris-calido sm:text-sm">
                   {day}
                 </span>
 
                 {number === "27" ? (
-                  <div className="relative mt-4">
+                  <div className="relative mt-3 sm:mt-4">
                     <Flower2
-                      size={38}
-                      className="text-dorado"
+                      size={44}
+                      className="text-dorado sm:h-12 sm:w-12"
                       strokeWidth={1.4}
                     />
 
-                    <span
-                      className="
-                        absolute
-                        inset-0
-                        flex
-                        items-center
-                        justify-center
-                        text-sm
-                        font-medium
-                        text-gris-calido
-                      "
-                    >
+                    <span className="absolute inset-0 flex items-center justify-center text-sm font-medium text-gris-calido">
                       {number}
                     </span>
 
-                    <div
-                      className="
-                        absolute
-                        left-1/2
-                        top-11
-                        h-20
-                        w-px
-                        -translate-x-1/2
-                        bg-gris-calido/30
-                      "
-                    />
+                    <div className="absolute left-1/2 top-12 h-12 w-px -translate-x-1/2 bg-gris-calido/30 sm:h-16 md:h-20" />
                   </div>
                 ) : (
-                  <span className="mt-4 text-gris-calido/60">{number}</span>
+                  <span className="mt-3 text-sm text-gris-calido/60 sm:mt-4 sm:text-base">
+                    {number}
+                  </span>
                 )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Texto */}
-
-        <div className="mt-32 animate-slide-up">
+        <div className="mt-20 animate-slide-up sm:mt-24 lg:mt-28">
           <h2
             className="
               font-cormorant
-              text-5xl
-              md:text-6xl
+              text-[clamp(2.5rem,6vw,4.5rem)]
               text-gris-calido
             "
           >
@@ -151,136 +126,123 @@ const Countdown = () => {
 
           <p
             className="
+              mx-auto
               mt-4
+              max-w-md
+              text-balance
               font-poppins
-              text-gris-calido/70
+              text-base
               italic
-              text-lg
+              text-gris-calido/70
+              sm:text-lg
             "
           >
-            Una tarde muy especial está por comenzar
+            Una tarde muy especial está por comenzar.
           </p>
         </div>
 
-        {/* Contador */}
-
-        <div
-          className="
-            mt-20
-            animate-slide-up
-          "
-        >
+        <div className="mt-16 w-full animate-slide-up sm:mt-20">
           <p
             className="
               font-montserrat
+              text-xs
               uppercase
-              tracking-[0.45em]
-              text-sm
+              tracking-[0.35em]
               text-gris-calido/70
+              sm:text-sm
             "
           >
             Faltan solamente
           </p>
 
-          {/* Días */}
-
-          <div className="mt-8">
-            <h3
+          <div className="mt-8 flex justify-center">
+            <div
               className="
-                font-cormorant
-                text-[7rem]
-                leading-none
-                text-gris-calido
-                font-light
+                rounded-3xl
+                border
+                border-dorado/20
+                bg-white/50
+                px-8
+                py-8
+                shadow-lg
+                backdrop-blur-sm
               "
             >
-              {format(timeLeft.days)}
-            </h3>
-
-            <p
-              className="
-                mt-2
-                font-montserrat
-                uppercase
-                tracking-[0.45em]
-                text-sm
-                text-gris-calido/70
-              "
-            >
-              Días
-            </p>
-          </div>
-
-          <div className="my-10 h-px w-60 bg-linear-to-r from-transparent via-dorado to-transparent" />
-
-          {/* Horas */}
-
-          <div className="grid grid-cols-3 gap-10">
-            <div>
-              <p
+              <h3
                 className="
                   font-cormorant
-                  text-5xl
+                  text-[clamp(4.5rem,14vw,7rem)]
+                  leading-none
+                  font-light
                   text-gris-calido
                 "
               >
-                {format(timeLeft.hours)}
-              </p>
+                {format(timeLeft.days)}
+              </h3>
 
-              <span
+              <p
                 className="
-                  mt-2
-                  block
+                  mt-3
                   font-montserrat
                   text-xs
                   uppercase
                   tracking-[0.35em]
                   text-gris-calido/70
+                  sm:text-sm
                 "
               >
-                Horas
-              </span>
-            </div>
-
-            <div>
-              <p className="font-cormorant text-5xl text-gris-calido">
-                {format(timeLeft.minutes)}
+                Días
               </p>
+            </div>
+          </div>
 
-              <span
+          <div className="mx-auto my-10 h-px w-48 bg-linear-to-r from-transparent via-dorado to-transparent sm:w-60" />
+
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8">
+            {timeUnits.map((item) => (
+              <div
+                key={item.label}
                 className="
-                  mt-2
-                  block
-                  font-montserrat
-                  text-xs
-                  uppercase
-                  tracking-[0.35em]
-                  text-gris-calido/70
+                  rounded-2xl
+                  border
+                  border-dorado/15
+                  bg-white/45
+                  px-3
+                  py-5
+                  shadow-md
+                  backdrop-blur-sm
+                  transition-transform
+                  duration-300
+                  hover:-translate-y-1
                 "
               >
-                Minutos
-              </span>
-            </div>
+                <p
+                  className="
+                    font-cormorant
+                    text-[clamp(2rem,5vw,3.5rem)]
+                    leading-none
+                    text-gris-calido
+                  "
+                >
+                  {item.value}
+                </p>
 
-            <div>
-              <p className="font-cormorant text-5xl text-gris-calido">
-                {format(timeLeft.seconds)}
-              </p>
-
-              <span
-                className="
-                  mt-2
-                  block
-                  font-montserrat
-                  text-xs
-                  uppercase
-                  tracking-[0.35em]
-                  text-gris-calido/70
-                "
-              >
-                Segundos
-              </span>
-            </div>
+                <span
+                  className="
+                    mt-3
+                    block
+                    font-montserrat
+                    text-[10px]
+                    uppercase
+                    tracking-[0.25em]
+                    text-gris-calido/70
+                    sm:text-xs
+                  "
+                >
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
