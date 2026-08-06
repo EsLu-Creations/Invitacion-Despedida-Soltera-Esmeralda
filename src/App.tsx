@@ -9,7 +9,7 @@ import RSVP from "./components/RSVP/RSVP";
 
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen overflow-x-hidden bg-white">
       <Header />
       <Countdown />
       <Reception />
