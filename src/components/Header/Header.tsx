@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import imgHeader from "../../assets/img/header.png";
+import imgGallery4 from "../../assets/img/gallery-4.jpeg";
 
 const Header = () => {
   return (
