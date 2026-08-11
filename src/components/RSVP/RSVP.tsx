@@ -1,13 +1,31 @@
+import { useState } from "react";
 import { Flower2, MessageCircleHeart } from "lucide-react";
 
 const RSVP = () => {
   const phoneNumber = "528125789112";
 
-  const message = "¡Hola! Quiero confirmar mi asistencia";
+  const [name, setName] = useState("");
+  const [isAttending, setIsAttending] = useState<boolean | null>(null);
 
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-    message,
-  )}`;
+  const handleConfirm = () => {
+    if (!name.trim()) {
+      alert("Por favor, ingresa tu nombre y apellido.");
+      return;
+    }
+    if (isAttending === null) {
+      alert("Por favor, selecciona si asistirás o no.");
+      return;
+    }
+
+    const attendanceText = isAttending ? "sí asistiré" : "no podré asistir";
+    const message = `¡Hola! Soy ${name.trim()} y te escribo para confirmar que ${attendanceText} a tu despedida de soltera.`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message,
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section className="relative overflow-hidden bg-marfil py-16 sm:py-20 lg:py-28">
@@ -54,6 +72,7 @@ const RSVP = () => {
           className="
             animate-slide-up
             mt-8
+            mb-10
             max-w-xl
             text-balance
             font-poppins
@@ -67,10 +86,42 @@ const RSVP = () => {
           nos confirmes tu asistencia.
         </p>
 
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className="flex w-full max-w-sm flex-col gap-6 animate-slide-up">
+          <input
+            type="text"
+            placeholder="Tu nombre y apellido"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full border-b border-dorado/50 bg-transparent py-3 text-center font-poppins text-gris-calido placeholder:text-gris-calido/40 
+            focus:border-dorado focus:outline-none"
+          />
+
+          <div className="flex w-full gap-4">
+            <button
+              onClick={() => setIsAttending(true)}
+              className={`flex-1 rounded-full border border-dorado py-3 font-montserrat text-xs uppercase tracking-widest transition-all duration-300 ${
+                isAttending === true
+                  ? "bg-dorado text-white"
+                  : "bg-transparent text-gris-calido hover:bg-dorado/10"
+              }`}
+            >
+              Sí asistiré
+            </button>
+            <button
+              onClick={() => setIsAttending(false)}
+              className={`flex-1 rounded-full border border-dorado py-3 font-montserrat text-xs uppercase tracking-widest transition-all duration-300 ${
+                isAttending === false
+                  ? "bg-dorado text-white"
+                  : "bg-transparent text-gris-calido hover:bg-dorado/10"
+              }`}
+            >
+              No podré
+            </button>
+          </div>
+        </div>
+
+        <button
+          onClick={handleConfirm}
           className="
             mt-12
             inline-flex
@@ -104,8 +155,8 @@ const RSVP = () => {
           "
         >
           <MessageCircleHeart size={18} strokeWidth={1.8} />
-          Confirmar asistencia
-        </a>
+          Confirmar por WhatsApp
+        </button>
 
         <p
           className="
