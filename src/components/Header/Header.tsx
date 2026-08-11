@@ -143,7 +143,13 @@ const Header = () => {
         >
           Despedida de Soltera
         </h2>
-
+        <div className="mt-4 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg animate-slide-up [animation-delay:300ms]">
+          <img
+            src={imgGallery4}
+            alt="Pedida de mano de Esmeralda"
+            className="w-full h-auto rounded-2xl object-cover shadow-xl border-[6px] border-[#FFFDF9]/90"
+          />
+        </div>
         <p
           className="
             max-w-xs
