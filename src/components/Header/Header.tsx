@@ -158,7 +158,7 @@ const Header = () => {
             text-sm
             leading-7
             italic
-            text-gris-calido/80
+            text-black/77
             sm:max-w-sm
             sm:text-base
             md:max-w-lg
